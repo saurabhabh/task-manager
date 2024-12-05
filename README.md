@@ -36,11 +36,11 @@ Follow these steps to run the app locally:
 Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/task-manager-app.git
+git clone https://github.com/saurabhabh/task-manager.git
 ```
 ### 2.  Install Dependencies
 ```bash
-cd task-manager-app
+cd task-manager
 npm install
 ```
 
