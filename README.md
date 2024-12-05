@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Task Manager App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React app that allows users to log in, view tasks, and log out. The app consists of two main pages:
 
-## Available Scripts
+- **Login Page**: Where users can log in with their username and password.
+- **Tasks Page**: Where users can view their tasks after logging in.
 
-In the project directory, you can run:
+The app also includes a header with a logout button to clear the user token and return to the login page.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- User authentication with a login page.
+- Display of tasks on the tasks page.
+- Logout functionality to clear the authentication token.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- React
+- Axios (for API calls)
+- React Router (for navigation)
+- CSS (for styling)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisites
 
-### `npm run build`
+Before you begin, ensure you have the following installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Node.js**: [Install Node.js](https://nodejs.org/)
+- **npm**: npm is bundled with Node.js, but ensure it is updated by running `npm install -g npm`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Follow these steps to run the app locally:
 
-### `npm run eject`
+### 1. Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clone the repository to your local machine.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/your-username/task-manager-app.git
+```
+### 2.  Install Dependencies
+```bash
+cd task-manager-app
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Run the App Locally
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Backend API
+The app makes requests to a local API running at http://localhost:7297. You need to have the backend API running locally to interact with the app. Here's how to start the backend:
 
-## Learn More
+- Clone the backend repository (if it's in a separate repo).
+- Follow the backend's README to start the API locally.
+- Ensure the API is running and accessible at http://localhost:7297.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Logging In
+- Navigate to the Login Page.
+- Enter the username and password:
+    - Username: user
+    - Password: user123
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - Username: admin
+    - Password: admin123
 
-### Code Splitting
+These credentials will be used to authenticate the user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 6. Viewing Tasks
+After logging in, you will be redirected to the Tasks Page, where you can view a list of tasks fetched from the API. The tasks will be displayed as a list, each with a task name and role.
 
-### Analyzing the Bundle Size
+### 7. Logging Out
+To log out, click the Logout button on the top header. This will:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Clear the authentication token from memory.
+- Redirect you back to the Login page.

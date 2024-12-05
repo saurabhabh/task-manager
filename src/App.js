@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import TasksPage from "./pages/TasksPage";
 
-function App() {
+const App = () => {
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+  const handleLogout = () => {
+    setToken("");
+    localStorage.removeItem("token");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <LoginPage
+              setToken={(token) => {
+                setToken(token);
+                localStorage.setItem("token", token);
+              }}
+            />
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            token ? (
+              <TasksPage token={token} onLogout={handleLogout} />
+            ) : (
+              <LoginPage
+                setToken={(token) => {
+                  setToken(token);
+                  localStorage.setItem("token", token);
+                }}
+              />
+            )
+          }
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
